@@ -1,0 +1,55 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Purpose</h4>
+                </div>
+                <div class="panel-body">
+                    <p class="quick-indent">
+                        {{purpose}}
+                    </p>
+                    <img src="app/content/Women-in-engineering-1.jpg" class="img-responsive img-rounded float-sm-right" />
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Skills Taught</h4>
+                </div>
+                <div class="panel-body">
+                    <p class="quick-indent">
+                        {{skills}}
+                    </p>
+                    <ul class="list-group">
+                        <li class="list-group-item text-center" *ngFor="let skill of skillsList">{{skill}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Pricing</h4>
+                </div>
+                <div class="panel-body">
+                    <p class="quick-indent">
+                        Prices are listed below.  However, if you cannot afford these prices please reach out anyway and we can work something out.  Price shouldn't be a reason that a girl doesn't learn computer science.
+                    </p>
+                        <ul class="list-group">
+                        <li class="list-group-item row" *ngFor="let price of priceList">
+                            <div class="col-lg-10">
+                                {{price.description}}:
+                            </div>
+                            <div class="col-lg-2">
+                                {{price.amount}}
+                            </div>
+                        </li>
+                </ul>
+                To book a lesson, fill out the form in the <a href="#" (click)="onChangeTabs('contact')">contact</a> tab.
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

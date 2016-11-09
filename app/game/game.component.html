@@ -1,0 +1,35 @@
+﻿<div class="container">
+    <div class="row">
+        <h4 class="text-center" *ngIf="implementationList.length >0" >Match the concept with its vague implementation!</h4>
+        <h4 class="text-center" *ngIf="implementationList.length === 0">YOU WON THE GAME!</h4>
+    </div>
+    <div class="row quick-padding" *ngIf="implementationList.length === 0">
+        <div class="col-lg-offset-5 col-lg-2">
+            <img src="app/content/pineapple.jpg" class="img-responsive center-block img-rounded float-sm-right"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3" *ngIf="implementationList.length > 0" [hidden]="dataCorrect === null" [ngClass]="{'success-alert': dataCorrect === true, 'failure-alert': dataCorrect === false}">
+            <h4 class="text-center">{{alertMessage}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h5 class="text-center" style="padding:10px;color:#007991"  *ngIf="conceptList.length > 0"><b>Concepts</b></h5>
+            <div class="well well-lg text-center game-item" style="cursor:pointer" *ngFor="let concept of conceptList; let i = index" (click)="isSameConcept(concept)" [ngClass]="{'highlight-border': borderHighlight === i}">
+                {{concept}}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h5 class="text-center" style="padding:10px; color:#007991"  *ngIf="implementationList.length >0"><b>Vague Implementations</b></h5>
+            <div class="well well-lg game-item" style="cursor:pointer"  *ngFor="let implementation of implementationList; let z = index" (click)="isSameImplementation(implementation)" [ngClass]="{'highlight-border': borderAnswerHighlight === z}">
+                {{implementation}}
+            </div>
+        </div>
+        <div class="row quick-padding">
+            <div class="col-lg-offset-5 col-lg-2">
+                <button class="btn btn-default center-block" (click)="resetGame()">Reset Game</button>
+            </div>
+        </div>
+    </div>
+</div>

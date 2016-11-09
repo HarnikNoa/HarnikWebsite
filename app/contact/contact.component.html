@@ -1,0 +1,36 @@
+﻿<div class="container">
+    <form action="https://formspree.io/harniknoa@gmail.com"
+          method="POST" class="form-horizontal" #contactForm="ngForm">
+        <fieldset>
+            <div class="row">
+                <h1 class="h4">Contact Noa</h1>
+                <em class="col-lg-offset-1">Response guaranteed in 48 hours or less</em>
+            </div>
+            <div class="padded-div-box">
+                <div class="form-group">
+                    <label for="inputName" class="col-lg-2 control-label">Name:</label>
+                    <div class="col-lg-10">
+                        <input class="form-control" placeholder="Name" required type="text" name="name" [(ngModel)]="name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">Email:</label>
+                    <div class="col-lg-10">
+                        <input type="email" pattern="[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$" name="_replyto" required class="form-control" id="inputEmail" [(ngModel)]="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputMessage" class="col-lg-2 control-label">Message:</label>
+                    <div class="col-lg-10">
+                        <textarea name="message" class="form-control" required placeholder="Your message/comments here" [(ngModel)]="message"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <input type="submit" class="btn btn-primary" value="Send" [disabled]="!contactForm.form.valid">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
