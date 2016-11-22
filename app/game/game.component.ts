@@ -57,7 +57,6 @@ export class GameComponent {
    }
 
    isMatch() {
-       console.log(this.completedHash[this.oldConcept]);
        if (this.completedHash[this.oldConcept] === this.oldImplementation) {
            //match! success!
            this.toastSuccess();

@@ -55,7 +55,6 @@ var GameComponent = (function () {
         var _a;
     };
     GameComponent.prototype.isMatch = function () {
-        console.log(this.completedHash[this.oldConcept]);
         if (this.completedHash[this.oldConcept] === this.oldImplementation) {
             //match! success!
             this.toastSuccess();
