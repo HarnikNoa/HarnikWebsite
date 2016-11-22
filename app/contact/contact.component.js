@@ -9,15 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 var ContactComponent = (function () {
-    function ContactComponent() {
+    function ContactComponent(http) {
+        this.http = http;
+        this.data = { name: '', email: '', message: '' };
     }
+    ContactComponent.prototype.onSubmit = function () {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        this.http.post('https://formspree.io/harniknoa@gmail.com', JSON.stringify(this.data), {
+            headers: headers
+        }).subscribe(function (data) {
+        });
+    };
     ContactComponent = __decorate([
         core_1.Component({
             selector: 'contact-tab',
             templateUrl: 'app/contact/contact.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], ContactComponent);
     return ContactComponent;
 }());

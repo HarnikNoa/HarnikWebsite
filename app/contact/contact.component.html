@@ -1,6 +1,5 @@
 ﻿<div class="container">
-    <form action="https://formspree.io/harniknoa@gmail.com"
-          method="POST" class="form-horizontal" #contactForm="ngForm">
+    <form (ngSubmit)="onSubmit()" class="form-horizontal" #contactForm="ngForm">
         <fieldset>
             <div class="row">
                 <div class="col-xs-12"><h1 class="h4">Contact Noa</h1></div>
@@ -10,19 +9,19 @@
                 <div class="form-group">
                     <label for="inputName" class="col-xs-3 control-label">Name:</label>
                     <div class="col-xs-9">
-                        <input class="form-control" placeholder="Name" autocorrect=off autocapitalize=words required type="text" name="name" [(ngModel)]="name">
+                        <input class="form-control" placeholder="Name" autocorrect=off autocapitalize=words required type="text" name="name" [(ngModel)]="data.name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail" class="col-xs-3 control-label">Email:</label>
                     <div class="col-xs-9">
-                        <input type="email" autocorrect=off autocapitalize=words pattern="[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$" name="_replyto" required class="form-control" id="inputEmail" [(ngModel)]="email" placeholder="Email">
+                        <input type="email" autocorrect=off autocapitalize=words pattern="[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$" name="_replyto" required class="form-control" id="inputEmail" [(ngModel)]="data.email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputMessage" class="col-xs-3 control-label">Message:</label>
                     <div class="col-xs-9">
-                        <textarea name="message" class="form-control" required placeholder="Your message/comments here" [(ngModel)]="message"></textarea>
+                        <textarea name="message" class="form-control" required placeholder="Your message/comments here" [(ngModel)]="data.message"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
