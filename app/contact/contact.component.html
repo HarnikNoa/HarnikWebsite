@@ -1,32 +1,39 @@
 ﻿<div class="container">
-    <form (ngSubmit)="onSubmit()" class="form-horizontal" #contactForm="ngForm">
+    <form (ngSubmit)="onSubmit(contactForm)" class="form-horizontal" #contactForm="ngForm">
         <fieldset>
             <div class="row">
-                <div class="col-xs-12"><h1 class="h4">Contact Noa</h1></div>
-                <em class="col-xs-offset-1 col-lg-offset-2">Where appropriate, response guaranteed in 48 hours or less</em>
-            </div>
+                <div class="col-xs-12">
+                    <h1 class="h4">Contact Noa</h1>
+                    <em class="col-xs-offset-2 col-lg-offset-2">Where appropriate, response guaranteed in 48 hours or less</em>
+                </div>
+                </div>
             <div class="padded-div-box">
                 <div class="form-group">
-                    <label for="inputName" class="col-xs-3 control-label">Name:</label>
-                    <div class="col-xs-9">
+                    <label for="inputName" class="col-xs-4 col-sm-3 control-label">Name:</label>
+                    <div class="col-xs-8 col-sm-9">
                         <input class="form-control" placeholder="Name" autocorrect=off autocapitalize=words required type="text" name="name" [(ngModel)]="data.name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail" class="col-xs-3 control-label">Email:</label>
-                    <div class="col-xs-9">
+                    <label for="inputEmail" class="col-xs-4 col-sm-3 control-label">Email:</label>
+                    <div class="col-xs-8 col-sm-9">
                         <input type="email" autocorrect=off autocapitalize=words pattern="[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$" name="_replyto" required class="form-control" id="inputEmail" [(ngModel)]="data.email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputMessage" class="col-xs-3 control-label">Message:</label>
-                    <div class="col-xs-9">
+                    <label for="inputMessage" class="col-xs-4 col-sm-3 control-label">Message:</label>
+                    <div class="col-xs-8 col-sm-9">
                         <textarea name="message" class="form-control" required placeholder="Your message/comments here" [(ngModel)]="data.message"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-xs col-lg-offset-2">
+                    <div class="col-xs-1 col-lg-offset-2" [hidden]="busy === true">
                         <input type="submit" class="btn btn-primary" value="Send" [disabled]="!contactForm.form.valid">
+                    </div>
+                    <div class="col-xs-1 col-lg-offset-2" [hidden]="busy !== true">
+                        <button class="btn btn-primary" [disabled]="true">
+                            <img src="app/content/spinner.gif" class="img-responsive img-circle"/>
+                        </button>
                     </div>
                 </div>
             </div>
